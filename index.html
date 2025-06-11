@@ -35,9 +35,17 @@
 </head>
 <body>
   <audio id="bgm" src="prettyeyes.mp3" autoplay loop muted></audio>
-  <button id="bgm-toggle" onclick="document.getElementById('bgm').muted = false">
-    🔊 Nyalakan Musik
-  </button>
+  <button onclick="unmuteMusic()">🔊 Nyalakan Musik</button>
+<script>
+function unmuteMusic() {
+  const audio = document.getElementById('bgm');
+  audio.muted = false;
+  audio.play().catch(e => {
+    console.error('Audio play error:', e);
+    alert('Akses suara ditolak browser, silakan klik sekali lagi.');
+  });
+}
+</script>
   <iframe id="frame-konten" src="halaman1.html"></iframe>
 </body>
 </html>
