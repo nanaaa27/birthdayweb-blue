@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      background-color: #f0f4f8;
+    }
+    #bgm-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 999;
+      padding: 8px 16px;
+      background-color: #0033cc;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgm" src="prettyeyes.mp3" autoplay loop muted></audio>
+  <button id="bgm-toggle" onclick="document.getElementById('bgm').muted = false">
+    🔊 Nyalakan Musik
+  </button>
+  <iframe id="frame-konten" src="halaman1.html"></iframe>
+</body>
+</html>

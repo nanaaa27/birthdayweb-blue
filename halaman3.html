@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>My Precious</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #f0f8ff;
+      font-family: "Bonheur Royale", cursive;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .bonheur-royale-regular {
+  font-family: "Bonheur Royale", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+    .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 24px;
+  max-width: 700px;
+  width: 90%;
+  margin: auto;
+    }
+
+    .title {
+      font-size: 28px;
+      font-family: "Bonheur Royale", cursive;
+      margin-bottom: 20px;
+      color: #0033cc;
+    }
+
+    .content {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .line {
+      width: 4px;
+      background-color: #5ca4ea;
+      margin-right: 20px;
+      transition: height 0.3s;
+    }
+
+    .text {
+      font-size: 20px;
+      font-family: "Bonheur Royale", cursive;
+      color: #0033cc;
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .emoji {
+      position: fixed;
+      top: -30px;
+      font-size: 20px;
+      animation: fall 4s linear infinite;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="title">My Lovely Boy 💙</div>
+    <div class="content">
+      <div class="line" id="line"></div>
+      <div class="text" id="type-text"></div>
+    </div>
+  </div>
+
+  <!-- Emoji Rain -->
+  <script>
+    const emojis = ["💙", "🩵", "⭐️"];
+    setInterval(() => {
+      const el = document.createElement("div");
+      el.className = "emoji";
+      el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.fontSize = 18 + Math.random() * 10 + "px";
+      el.style.animationDuration = 2 + Math.random() * 2 + "s";
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 5000);
+    }, 300);
+  </script>
+
+  <!-- Typing Effect -->
+  <script>
+    const text = `Happy Birthday, my love! 🎉❤️
+    
+    I’m so grateful you were born, because the world—and my world—is better with you in it. 
+    
+    Thank you for being the amazing, caring, and wonderful person you are. I love you so much, and I hope today brings you as much happiness as you bring me every day. 💕🎂
+    
+    with all my love
+    𐙚 ur prettiest gf ᡣ𐭩`;
+    const typeTarget = document.getElementById('type-text');
+    const line = document.getElementById('line');
+    let i = 0;
+
+    function ketik() {
+      if (i < text.length) {
+        typeTarget.textContent += text[i];
+        i++;
+        line.style.height = typeTarget.offsetHeight + "px";
+        setTimeout(ketik, 40);
+      } else {
+        typeTarget.style.borderRight = "none";
+      }
+    }
+
+    ketik();
+  </script>
+
+</body>
+</html>
