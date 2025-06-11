@@ -18,7 +18,7 @@
     button {
   padding: 12.5px 30px;
   border: 0;
-  border-radius: 100px;
+  border-radius: 40px;
   background-color: #0033cc;
   color: #ffffff;
   font-weight: Bold;  
@@ -41,8 +41,8 @@ button:active {
 }
     #bgm-toggle {
       position: fixed;
-      top: 10px;
-      left: 10px;
+      top: 24px;
+      left: 20px;
       z-index: 999;
       padding: 8px 16px;
       background-color: #0033cc;
@@ -70,6 +70,9 @@ function unmuteMusic() {
     console.error('Audio play error:', e);
     alert('Akses suara ditolak browser, silakan klik sekali lagi.');
   });
+  // Hilangkan tombol dengan animasi
+  btn.style.opacity = 0;
+  setTimeout(() => btn.style.display = 'none', 500); // hilang total setelah 0.5 detik
 }
 </script>
   <iframe id="frame-konten" src="halaman1.html"></iframe>
